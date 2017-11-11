@@ -1,21 +1,29 @@
+<div class="container">
+<div class="row">
+<div class="col-md-6">
 <form class="form-horizontal" [formGroup]="loginForm">
 
   <div class="form-group">
     <div class="col-sm-12">
       <label for="email" class="control-label">Email</label>
-      <input type="text" id="firstname" class="form-control" formControlName="firstname">
+      <input type="text" id="username" class="form-control" formControlName="username">
     </div>
   </div>
 
   <div class="form-group">
     <div class="col-sm-12">
       <label for="password" class="control-label">Password</label>
-      <input type="password" id="password" class="form-control" formControlName="lastname">
+      <input type="password" id="password" class="form-control" formControlName="password">
     </div>
   </div>
 
-  <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">
-    Submit
-  </button>
+  <div class="form-group">
+    <div class="col-sm-12">
+       <button type="submit" class="btn btn-primary"  (click) ="submitPost(loginForm)"> Submit </button>
+    </div>
+  </div>
+  
+ 
 
 </form>
+</div></div></div>
