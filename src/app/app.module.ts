@@ -8,12 +8,14 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { AuthService } from './services/auth.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,8 @@ import { AuthService } from './services/auth.service';
     ReactiveFormsModule,
     RouterModule.forRoot([
     {path: 'login', component: LoginComponent},
-    {path: 'register', component: RegisterComponent}
+    {path: 'register', component: RegisterComponent},
+    {path: 'dashboard', component: DashboardComponent}
     ])
   ],
   providers: [AuthService],

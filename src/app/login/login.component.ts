@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   password: string;
   type: string = 'login';
   constructor(private formbuilderlogin: FormBuilder, public auth: AuthService) {
+    this.auth.isLoggedIn();
   }
   ngOnInit() {
     this.loginForm = this.formbuilderlogin.group({
@@ -25,7 +26,11 @@ export class LoginComponent implements OnInit {
   submitPost() {
     const userdata = { username: this.loginForm.controls.username.value, password: this.loginForm.controls.password.value};
     this.auth.login(userdata,this.type).then((result) => {
-      console.log(result);
+      var userJsonData = JSON.parse(result._body);
+      localStorage.setItem('currentUserID', userJsonData[0].user_id);
+      localStorage.setItem('currentUserName', userJsonData[0].username);
+      localStorage.setItem('currentUserStatus', userJsonData[0].status);
+      this.auth.isLoggedIn();
     }, (err) => {
       // Error log
     });
