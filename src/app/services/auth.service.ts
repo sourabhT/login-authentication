@@ -33,4 +33,10 @@ export class AuthService {
     const url = apiUrl;
     return this.http.post(url, credentials, {headers: this.headers}).toPromise();
   }
+
+  logout() {
+          // remove user from local storage to log user out
+          localStorage.clear();
+  }
+
 }
